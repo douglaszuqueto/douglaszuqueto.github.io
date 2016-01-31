@@ -1,0 +1,36 @@
+{
+  "name": "douglaszuqueto.github.io",
+  "version": "1.0.0",
+  "description": "Blog sobre Internet Das Coisas",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/douglaszuqueto/douglaszuqueto.github.io.git"
+  },
+  "keywords": [
+    "IoT",
+    "IoE",
+    "Arduino",
+    "ESP8266",
+    "OpenSource",
+    "OpenHardware",
+    "Maker"
+  ],
+  "author": "Douglas Salin Zuqueto <douglas.zuqueto@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/douglaszuqueto/douglaszuqueto.github.io/issues"
+  },
+  "homepage": "https://github.com/douglaszuqueto/douglaszuqueto.github.io#readme",
+  "devDependencies": {
+    "gulp": "^3.9.0"
+  },
+  "dependencies": {
+    "gulp-livereload": "^3.8.1",
+    "laravel-elixir": "^4.2.1",
+    "rimraf": "^2.5.1"
+  }
+}

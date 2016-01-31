@@ -1,15 +1,17 @@
 <html ng-app="app">
 <head>
-  <!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
-
-  <!-- Compiled and minified JavaScript -->
-
 </head>
 <body >
   <div class="container">
     <div class="row" ng-controller="homeCtrl">
       <p>{{hello}}</p>
+      <div class="row">
+        <div class="divider"></div>
+        <ul ng-repeat="p in posts">
+          <li>{{p.title}} | {{p.date}}</li>
+        </ul>
+      </div>
     </div>
   </div>
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
@@ -17,9 +19,11 @@
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
   <script>
   angular.module('app', []);
-  angular.module('app').controller('homeCtrl', ['$scope', function($scope){
+  angular.module('app').controller('homeCtrl', ['$scope','$http', function($scope, $http){
     $scope.hello = "Douglas";
-    console.log("teste");
+    $http.get('./db/posts.json').success(function(response) {
+        $scope.posts = response.posts;
+    });
   }]);
   </script>
 </body>

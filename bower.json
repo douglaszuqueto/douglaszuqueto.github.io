@@ -1,0 +1,35 @@
+{
+  "name": "douglaszuqueto.github.io",
+  "homepage": "https://github.com/douglaszuqueto/douglaszuqueto.github.io",
+  "authors": [
+    "douglaszuqueto <douglas.zuqueto@gmail.com>"
+  ],
+  "description": "Blog sobre Internet Das Coisas",
+  "main": "",
+  "moduleType": [],
+  "keywords": [
+    "IoT",
+    "IoE",
+    "Arduino",
+    "ESP8266",
+    "OpenSource",
+    "OpenHardware",
+    "Maker"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "Materialize": "materialize#~0.97.5",
+    "angular": "1.4.9",
+    "angular-resource": "^1.4.9",
+    "ng-file-upload": "^11.2.3",
+    "angular-route": "^1.4.9"
+  }
+}
