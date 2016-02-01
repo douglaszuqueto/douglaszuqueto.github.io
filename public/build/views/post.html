@@ -1,10 +1,9 @@
+<h4>Artigos</h4>
+<p>{{hello}}</p>
 <div class="row">
-  <h1>POST</h1>
-  <p>{{hello}}</p>
-  <div class="row">
-    <div class="divider"></div>
-    <ul ng-repeat="p in posts">
-      <li>{{p.title}} | {{p.date}}</li>
-    </ul>
-  </div>
+  <div class="divider"></div>
+  <ul ng-repeat="p in posts">
+    <li>{{p.title}} | {{p.date}}</li>
+    <li><img ng-src="./public/build/images/{{p.image}}" alt="{{p.image}}"></li>
+  </ul>
 </div>

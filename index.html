@@ -1,12 +1,51 @@
 <html ng-app="app">
 <head>
   <!-- <link rel="stylesheet" href="./resources/bower_components/Materialize/dist/css/materialize.min.css"> -->
-  <link rel="stylesheet" href="./public/build/css/vendor/materialize.min.css">
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="http://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="./public/build/css/vendor/materialize.min.css" media="screen,projection"/>
+  <link rel="stylesheet" href="./public/build/css/app.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <body>
-  <div class="container">
-  <ng-view></ng-view>
-  </div>
+  <header>
+    <nav class="top-nav blue lighten-1">
+      <div class="container container-85 ">
+        <div class="nav-wrapper"><a class="page-title">Internet Of Things</a>
+          <div class="right">
+              <input id="search">
+          </div>
+        </div>
+
+      </div>
+    </nav>
+    <div class="container">
+      <a href="" data-activates="nav-mobile" class="button-collapse top-nav full hide-on-large-only">
+        <i class="mdi-navigation-menu"></i>
+      </a>
+    </div>
+    <ul id="nav-mobile" class="side-nav fixed">
+      <li class="logo">
+        <a id="logo-container" href="#/home" class="">
+          <img src="./public/build/images/perfil.jpg" class="z-depth-2" width="150px" alt="" />
+        </a>
+      </li>
+      <p class="center title_menu">Douglas Zuqueto</p>
+      <div class="divider"></div>
+      <li class="bold"><a href="#/home" class="waves-effect waves-teal">Home</a></li>
+      <li class="bold"><a href="#/post" class="waves-effect waves-teal">Post</a></li>
+    </ul>
+  </header>
+  <main>
+    <div class=" ">
+      <div class="row">
+        <div class="col s12 m12 l12">
+          <ng-view></ng-view>
+        </div>
+      </div>
+    </div>
+  </main>
+
   <!-- <script src="./resources/bower_components/jquery/dist/jquery.min.js"></script>
   <script src="./resources/bower_components/Materialize/dist/js/materialize.min.js"></script>
   <script src="./resources/bower_components/angular/angular.min.js"></script>
@@ -16,6 +55,19 @@
   <script src="./public/build/js/vendor/materialize.min.js"></script>
   <script src="./public/build/js/vendor/angular.min.js"></script>
   <script src="./public/build/js/vendor/angular-route.min.js"></script>
+  <script type="text/javascript">
+  $.noConflict();
+  (function($){
+    $(function(){
+      $('.button-collapse').sideNav({
+        menuWidth: 250, // Default is 240
+        edge: 'right', // Choose the horizontal origin
+        closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
+      });
+
+    }); // end of document ready
+  })(jQuery); // end of jQuery name space
+  </script>
   <script src="./public/build/js/app.js"></script>
 </body>
 </html>
