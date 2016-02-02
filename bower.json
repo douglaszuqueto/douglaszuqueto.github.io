@@ -30,6 +30,7 @@
     "angular": "1.4.9",
     "angular-resource": "^1.4.9",
     "ng-file-upload": "^11.2.3",
-    "angular-route": "^1.4.9"
+    "angular-route": "^1.4.9",
+    "angular-sanitize": "^1.4.9"
   }
 }
