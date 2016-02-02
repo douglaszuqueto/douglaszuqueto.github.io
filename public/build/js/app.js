@@ -1,4 +1,4 @@
-angular.module('app', ['ngRoute', 'GoogleAnalytics']);
+angular.module('app', ['ngRoute']);
 angular.module('app').config(['$routeProvider', function($routeProvider){
   $routeProvider
   .when('/home',{
@@ -19,17 +19,20 @@ angular.module('app').config(['$routeProvider', function($routeProvider){
   })
   .otherwise('/home');
 }]);
-angular.module('app').controller('HomeController', ['$scope','$http', function($scope, $http){
-  $scope.hello = "Douglas";
+angular.module('app').controller('HomeController', ['$scope','$http','$rootScope','$location', function($scope, $http, $rootScope, $location){
+  $rootScope.title = "Página Inicial";
+  ga('send', 'pageview', { page: $location.path(), title: $rootScope.title });
   $http.get('./db/posts.json').success(function(response) {
     $scope.posts = response.posts;
   });
 }]);
-angular.module('app').controller('PostController', ['$scope','$http','$routeParams', '$filter',
-function($scope, $http, $routeParams, $filter){
+angular.module('app').controller('PostController', ['$scope','$http','$routeParams', '$filter', '$rootScope', '$location',
+function($scope, $http, $routeParams, $filter, $rootScope, $location){
   $http.get('./db/posts.json').success(function(response) {
     var id = $routeParams.id;
     var obj =  $filter('filter')(response.posts, {id: id})[0];
+    $rootScope.title = obj.title;
+    ga('send', 'pageview', { page: $location.path(), title: $rootScope.title });
     $scope.post = obj;
   });
 }]);
