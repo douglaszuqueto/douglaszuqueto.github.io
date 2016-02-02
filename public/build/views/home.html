@@ -1,10 +1,17 @@
 <!-- <h4>Artigos</h4> -->
 <div class="row">
   <div class="divider"></div>
+  <div class="col l6 m8 s12 offset-l3 offset-m2" >
+    <div class="input-field">
+          <i class="material-icons prefix">search</i>
+          <input name="filtro" ng-model="filtro">
+        </div>
+  </div>
   <div class="col s12 m12 l12">
-    <div class="card medium col s12 l3 m6"  ng-repeat="p in posts">
-      <div class="card-image">
-        <img ng-src="./public/build/images/{{p.image}}" alt="{{p.image}}">
+    <div class="card small col s12 l3 m6 card-padding"  ng-repeat="p in posts | filter: {title: filtro}">
+        <a href="#/post/{{p.id}}">
+      <div class="card-image" style="height:140px">
+      <img ng-src="./public/build/images/{{p.image}}" alt="{{p.image}}">
         <!-- <span class="card-title">Card Title</span> -->
       </div>
       <div class="card-content">
@@ -13,8 +20,9 @@
           <!-- <i class="material-icons right">more_vert</i> -->
         </span>
         <div class="divider"></div>
-        <p>{{p.description | limitTo: 110}}...</p>
+        <p>{{p.description | limitTo: 65}}...</p>
       </div>
+      </a>
     </div>
   </div>
 </div>

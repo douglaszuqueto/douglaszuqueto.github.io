@@ -5,7 +5,7 @@ angular.module('app').config(['$routeProvider', function($routeProvider){
     templateUrl: './public/build/views/home.html',
     controller: 'HomeController'
   })
-  .when('/post',{
+  .when('/post/:id',{
     templateUrl: './public/build/views/post.html',
     controller: 'PostController'
   })
@@ -17,9 +17,14 @@ angular.module('app').controller('HomeController', ['$scope','$http', function($
     $scope.posts = response.posts;
   });
 }]);
-angular.module('app').controller('PostController', ['$scope','$http', function($scope, $http){
-  $scope.hello = "Douglas";
+angular.module('app').controller('PostController', ['$scope','$http','$routeParams', '$filter', '$compile',
+function($scope, $http, $routeParams, $filter,$compile){
   $http.get('./db/posts.json').success(function(response) {
-    $scope.posts = response.posts;
+    // var data = JSON.stringify(response);
+    var id = $routeParams.id;
+    var obj =  $filter('filter')(response.posts, {id: id})[0];
+    $scope.post = {};
+    // $scope.post.content = $compile(obj.content);
+    $scope.post = obj;
   });
 }]);

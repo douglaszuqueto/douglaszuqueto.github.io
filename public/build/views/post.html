@@ -1,9 +1,21 @@
-<h4>Artigos</h4>
-<p>{{hello}}</p>
 <div class="row">
   <div class="divider"></div>
-  <ul ng-repeat="p in posts">
-    <li>{{p.title}} | {{p.date}}</li>
-    <li><img ng-src="./public/build/images/{{p.image}}" alt="{{p.image}}"></li>
-  </ul>
+  <div class="col l12 m8 s12">
+    <div class="center">
+      <h4>{{post.title}}</h4>
+      <h6>{{post.date}}</h6>
+    </div>
+    <br>
+    <div class="row">
+      <div class="content col l10 m6 s12 offset-l1">
+        <div class="post-image center">
+          <img class="" width="70%" ng-src="./public/build/images/{{post.image}}" alt="{{post.image}}">
+        </div>
+        <br>
+        <div class="post-content">
+          <p ng-bind-html="post.content"></p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

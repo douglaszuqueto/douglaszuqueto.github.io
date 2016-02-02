@@ -43,3 +43,15 @@ nav.top-nav {
   line-height: 30px !important;
   /*padding: 0px !important;*/
 }
+.card .card-content{
+  padding: 5px;
+}
+.card .card-image{
+  padding-top: 5px;
+}
+
+/* POST */
+.post-content p{
+  text-align: justify;
+  text-justify: inter-word;
+}
