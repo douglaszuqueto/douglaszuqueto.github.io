@@ -10,12 +10,18 @@
       <div class="content col l10 m6 s12 offset-l1">
         <div class="post-image center">
           <img class="" width="70%" ng-src="./public/build/images/{{post.image}}" alt="{{post.image}}">
+          <div class="">
+            <br>
+            <span>Palavras Chaves: </span>
+            <div ng-repeat="t in post.tags" class="chip">
+              <div>{{t}}</div>
+            </div>
+          </div>
         </div>
         <br>
         <div class="post-content">
-          <p ng-bind-html="post.content"></p>
+          <p>{{post.content}}</p>
         </div>
       </div>
     </div>
-  </div>
 </div>

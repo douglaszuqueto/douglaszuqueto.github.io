@@ -1,4 +1,4 @@
-angular.module('app', ['ngRoute']);
+angular.module('app', ['ngRoute', 'GoogleAnalytics']);
 angular.module('app').config(['$routeProvider', function($routeProvider){
   $routeProvider
   .when('/home',{
@@ -9,6 +9,14 @@ angular.module('app').config(['$routeProvider', function($routeProvider){
     templateUrl: './public/build/views/post.html',
     controller: 'PostController'
   })
+  .when('/about',{
+    templateUrl: './public/build/views/about.html',
+    controller: 'AboutController'
+  })
+  .when('/contact',{
+    templateUrl: './public/build/views/contact.html',
+    controller: 'ContactController'
+  })
   .otherwise('/home');
 }]);
 angular.module('app').controller('HomeController', ['$scope','$http', function($scope, $http){
@@ -17,14 +25,11 @@ angular.module('app').controller('HomeController', ['$scope','$http', function($
     $scope.posts = response.posts;
   });
 }]);
-angular.module('app').controller('PostController', ['$scope','$http','$routeParams', '$filter', '$compile',
-function($scope, $http, $routeParams, $filter,$compile){
+angular.module('app').controller('PostController', ['$scope','$http','$routeParams', '$filter',
+function($scope, $http, $routeParams, $filter){
   $http.get('./db/posts.json').success(function(response) {
-    // var data = JSON.stringify(response);
     var id = $routeParams.id;
     var obj =  $filter('filter')(response.posts, {id: id})[0];
-    $scope.post = {};
-    // $scope.post.content = $compile(obj.content);
     $scope.post = obj;
   });
 }]);

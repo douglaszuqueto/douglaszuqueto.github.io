@@ -1,26 +1,31 @@
 <!-- <h4>Artigos</h4> -->
 <div class="row">
   <div class="divider"></div>
-  <div class="col l6 m8 s12 offset-l3 offset-m2" >
+  <div class="col l5 m8 s12 offset-l3 offset-m2" >
     <div class="input-field">
           <i class="material-icons prefix">search</i>
           <input name="filtro" ng-model="filtro">
         </div>
   </div>
   <div class="col s12 m12 l12">
-    <div class="card small col s12 l3 m6 card-padding"  ng-repeat="p in posts | filter: {title: filtro}">
+    <div class="card small col s12 l4 m6 "  ng-repeat="p in posts | filter: {tags: filtro}">
         <a href="#/post/{{p.id}}">
       <div class="card-image" style="height:140px">
       <img ng-src="./public/build/images/{{p.image}}" alt="{{p.image}}">
         <!-- <span class="card-title">Card Title</span> -->
       </div>
       <div class="card-content">
-        <span class="card-title activator grey-text text-darken-4 bold post_title">
-          {{p.title | limitTo: 70}}
+        <span class="card-title grey-text text-darken-4 bold post_title">
+          {{p.title}}
           <!-- <i class="material-icons right">more_vert</i> -->
         </span>
         <div class="divider"></div>
-        <p>{{p.description | limitTo: 65}}...</p>
+        <!-- <p>{{p.description | limitTo: 215}}...</p> -->
+        <br>
+        <span>Palavras Chaves: </span>
+        <div ng-repeat="t in p.tags" class="chip">
+          <div>{{t}}</div>
+        </div>
       </div>
       </a>
     </div>

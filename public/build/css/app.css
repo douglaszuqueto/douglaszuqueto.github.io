@@ -12,12 +12,14 @@ ul.side-nav.fixed li.logo {
   margin-top: 32px;
   margin-bottom: 80px;
 }
+.nav-wrapper a{
+  line-height: 55px;
+}
 nav.top-nav a.page-title {
-  line-height: 80px;
-  font-size: 48px;
+  /*line-height: 80px;*/
 }
 nav.top-nav {
-  height: 80px;
+  height: 60px;
   box-shadow: none;
 }
 #logo-container {
@@ -37,15 +39,20 @@ nav.top-nav {
 }
 /* POSTS */
 .post_title{
-  font-size: 18px !important
+  font-size: 18px !important;
+  padding-bottom: 5px !important;
+}
+.card.small .card-content, .card.medium .card-content, .card.large .card-content {
+    max-height: 50% !important;
 }
 .card-content span{
-  line-height: 30px !important;
-  /*padding: 0px !important;*/
+  line-height: 23px !important;
 }
 .card .card-content{
-  padding: 5px;
+  padding: 5px 5px 5px 5px;
+  line-height: 20px !important;
 }
+
 .card .card-image{
   padding-top: 5px;
 }
